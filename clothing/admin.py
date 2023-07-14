@@ -1,12 +1,17 @@
 from django.contrib import admin
-from .models import Clothes, ClothType
+from .models import Cloth, ClothType, ClothColor
 
 
-@admin.register(Clothes)
+@admin.register(Cloth)
 class ClothAdmin(admin.ModelAdmin):
-    list_display = ("name", "description", "cloth_type")
+    list_display = ("name", "description",)
 
 
 @admin.register(ClothType)
 class ClothTypeAdmin(admin.ModelAdmin):
-    list_display = ("choices", "color",)
+    list_display = ("cloth_choices", )
+
+
+@admin.register(ClothColor)
+class ClothColorAdmin(admin.ModelAdmin):
+    list_display = ("cloth_color", )
